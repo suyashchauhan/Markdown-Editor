@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./style.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="save-to-pdf">
+        <button id="save-button">Save to Pdf</button>
+        <div class="bar-root">
+            <div class="bar-child"></div>
+          </div>
+    </div>
+    <div class="parent" id="top">
+
+        <div class="md-container">
+            <h1>Markdown goes here</h1>
+            <textarea placeholder="start writing here" id="md-data"></textarea>
+        </div>
+        <div class="parent-container">
+            <h1>Output</h1>
+            <div id="child-container"></div>
+        </div>
+    </div>
+    <div id="gotop">
+        <a href="#top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"
+        integrity="sha512-L03kznCrNOfVxOUovR6ESfCz9Gfny7gihUX/huVbQB9zjODtYpxaVtIaAkpetoiyV2eqWbvxMH9fiSv5enX7bw=="
+        crossorigin="anonymous"></script>
+    <script src='./main.js'></script>
+</body>
+
+</html>
