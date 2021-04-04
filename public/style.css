@@ -77,9 +77,9 @@
     justify-content: space-between;
     align-items: center;
   }
-  .save-to-pdf button {
+  .save-to-pdf button,.filename button {
     margin: 0 10px;
-    padding: 10px;
+    padding: 10px 20px;
     outline: none;
     border: none;
     font-weight: 900;
@@ -115,4 +115,10 @@
     to {
       transform: translateY(0%);
     }
+  }
+  .filename 
+  {
+    display: none; 
+    justify-content: center;
+    align-items: center;
   }

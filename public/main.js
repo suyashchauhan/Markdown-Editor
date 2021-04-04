@@ -27,8 +27,28 @@ function handleScroll(e) {
 const saveToPdfButton = document.getElementById('save-button')
 saveToPdfButton.addEventListener('click', () => {
     const batteryElement = document.getElementsByClassName('bar-child')[0]
-    if (batteryElement.classList.contains('animate'))
+    const filename = document.getElementsByClassName('filename')[0]
+    console.log(filename)
+    if (batteryElement.classList.contains('animate')) {
         batteryElement.classList.remove('animate')
-    else
+        filename.classList.remove('show');
+    }
+    else {
+        filename.classList.add('show')
         batteryElement.classList.add('animate')
+    }
+})
+
+const downloadButton = document.getElementById('download')
+downloadButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log(dataHtml.innerHTML)
+    axios.post({
+        method:"post",
+        url:"/html",
+        data:{
+            html:dataHtml.innerHTML
+        }
+    })
+    // setTimeout(() => document.forms[0].submit(), 100)
 })
