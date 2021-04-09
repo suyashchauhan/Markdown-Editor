@@ -38,7 +38,8 @@ app.post('/md', (req, res) => {
 app.post("/pdf", async (req, res, next) => {
 
     const browser = await puppeteer.launch({
-        headless: true
+        headless: true,
+        args: ['--no-sandbox']
     });
     const webPage = await browser.newPage();
     const html = req.body
