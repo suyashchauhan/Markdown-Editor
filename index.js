@@ -61,5 +61,5 @@ app.post("/pdf", async (req, res, next) => {
     res.contentType("application/pdf");
     res.send(pdf);
 })
-
-app.listen(8000, () => console.log(`server is running`))
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`server is running`))
