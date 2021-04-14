@@ -9,3 +9,6 @@
 :white_check_mark: Save as PDF
 
 <a href="http://mdpdf.herokuapp.com/">Explore here >> </a>
+
+## Preview 
+![ReportSubmission](https://github.com/suyashchauhan/ReportSubmission/blob/master/public/Report1.png)
