@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer')
 const fs = require('fs')
 const bodyParser = require('body-parser')
 const app = express()
+const parser = require('./parser')
 
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
@@ -32,7 +33,7 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 app.post('/md', (req, res) => {
-    const output = marked(req.body.data)
+    const output = parser(req.body.data)
     res.send(output)
 })
 app.post("/pdf", async (req, res, next) => {
