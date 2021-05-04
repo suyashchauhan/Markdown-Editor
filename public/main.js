@@ -14,7 +14,7 @@ function convert() {
         data: data
     }).then((html) => {
         dataHtml.innerHTML = html.data
-        document.querySelectorAll('#child-container code').forEach(x => x.classList.add('hljs'))
+        document.querySelectorAll('#child-container pre code').forEach(x => x.classList.add('hljs'))
     })
     .catch(err => console.log(err))
 }
