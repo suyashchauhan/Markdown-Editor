@@ -4,9 +4,12 @@ const fs = require('fs')
 const bodyParser = require('body-parser')
 const app = express()
 const parser = require('./parser')
+const themes = require('./themes').themes
+const themeValue = require('./themes').themeValue
 
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/node_modules/highlight.js/styles/'))
 app.use(express.json())
 app.use(bodyParser.text({ type: 'text/html' }))
 const marked = require('marked');
@@ -28,14 +31,23 @@ marked.setOptions({
 });
 
 
+let output;
+let theme = "";
+theme = theme === "" ? './default.css' : theme;
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', { themes: themes, themeValue: themeValue, theme: theme, output: output })
 })
+
 app.post('/md', (req, res) => {
-    const output = parser(req.body.data)
+    output = parser(req.body.data)
+    theme = req.body.theme
+    const style = fs.readFileSync('./node_modules/highlight.js/styles' + theme.substring(1))
+    output += `<style>${style}</style>`;
+
     res.send(output)
 })
+
 app.post("/pdf", async (req, res, next) => {
 
     const browser = await puppeteer.launch({
